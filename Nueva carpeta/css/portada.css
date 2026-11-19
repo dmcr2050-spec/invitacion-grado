@@ -1,0 +1,132 @@
+:root {
+  --gold: #d9ad52;
+  --gold-light: #f4dc9b;
+}
+
+* { box-sizing: border-box; }
+
+.cap-wrap {
+  width: 20px;
+}
+
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 22px;
+  display: grid;
+  place-items: center;
+  color: #fff8e9;
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, #332513 0, #111 45%, #050505 100%);
+}
+
+.invitation {
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 
+    0 0 0 6px #080706,
+    0 0 0 7px rgba(212, 175, 55, 0.25),
+    0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.cover {
+  width: min(100%, 900px);
+  animation: appear .8s ease both;
+}
+
+.eyebrow {
+  margin: 0 0 20px;
+  color: var(--gold-light);
+  font-size: .8rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+
+.scroll-link {
+  display: block;
+  width: 100%;
+  border-radius: 18px;
+  outline-offset: 7px;
+  transition: transform .25s ease, filter .25s ease;
+}
+
+.scroll-link:hover,
+.scroll-link:focus-visible {
+  transform: scale(1.015);
+  filter: drop-shadow(0 0 22px #d9ad5270);
+}
+
+.scroll-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
+.hint {
+  margin: 22px 0 0;
+  color: var(--gold-light);
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.corner {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.3));
+}
+
+.corner svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Posición y rotación exacta de cada esquina */
+.corner--tl {
+  top: 10px;
+  left: 10px;
+}
+
+.corner--tr {
+  top: 10px;
+  right: 10px;
+  transform: scaleX(-1);
+}
+
+.corner--bl {
+  bottom: 10px;
+  left: 10px;
+  transform: scaleY(-1);
+}
+
+.corner--br {
+  bottom: 10px;
+  right: 10px;
+  transform: scale(-1, -1);
+}
+
+/* Ajuste para pantallas pequeñas (celulares) */
+@media (max-width: 480px) {
+  .corner {
+    width: 68px;
+    height: 68px;
+  }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 520px) {
+  body { padding: 14px; }
+  .eyebrow { font-size: .68rem; letter-spacing: .18em; }
+  .hint { font-size: .9rem; }
+}
